@@ -154,8 +154,20 @@
   }
 
   .floating-element {
-    @apply pointer-events-none fixed opacity-[0.08];
+    @apply pointer-events-none fixed;
+    z-index: 1;
+  }
+
+  /* Stars/dots background */
+  .stars-container {
+    @apply fixed inset-0 overflow-hidden pointer-events-none;
     z-index: 0;
+  }
+
+  .star {
+    @apply absolute rounded-full bg-foreground;
+    animation: twinkle var(--duration, 3s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
   }
 }
 

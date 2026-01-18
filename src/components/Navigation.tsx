@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 const navItems = [
   { href: '#work', label: 'Work' },
@@ -53,22 +54,27 @@ export function Navigation() {
             ))}
           </ul>
 
-          {/* CTA Button */}
-          <a 
-            href="#contact" 
-            className="hidden md:block text-sm font-medium px-6 py-2.5 bg-foreground text-background rounded-full hover:opacity-90 transition-opacity"
-          >
-            Let's Talk
-          </a>
+          {/* Right side actions */}
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            
+            {/* CTA Button */}
+            <a 
+              href="#contact" 
+              className="hidden md:block text-sm font-medium px-6 py-2.5 bg-foreground text-background rounded-full hover:opacity-90 transition-opacity"
+            >
+              Let's Talk
+            </a>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-muted transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-muted transition-colors"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Nav */}
