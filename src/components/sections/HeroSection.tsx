@@ -1,81 +1,75 @@
 import { motion } from 'framer-motion';
-import { Scene3D } from '../3d/Scene3D';
-import { DinoModel } from '../3d/DinoModel';
+import { ArrowDown } from 'lucide-react';
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden ground-line">
-      <div className="container mx-auto px-6 z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center lg:text-left"
           >
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="text-muted-foreground mb-4 uppercase tracking-widest text-sm"
-            >
-              Creative Developer
-            </motion.p>
-            
-            <h1 className="pixel-text text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight">
-              Hi, I'm <br />
-              <span className="text-foreground">DINO DEV</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-md mx-auto lg:mx-0 font-mono">
-              Building pixel-perfect experiences that jump over obstacles and run towards innovation.
+            <p className="text-mono text-muted-foreground mb-6 tracking-widest uppercase">
+              Creative Developer & Designer
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <motion.a
-                href="#projects"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="dino-button inline-block text-center"
-              >
-                View Projects
-              </motion.a>
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-6 py-3 border-2 border-foreground bg-transparent text-foreground font-bold uppercase tracking-wider transition-all hover:bg-foreground hover:text-background text-center"
-              >
-                Contact Me
-              </motion.a>
-            </div>
           </motion.div>
-
-          {/* 3D Dino */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="h-[400px] lg:h-[500px]"
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="heading-xl mb-8"
           >
-            <Scene3D cameraPosition={[0, 2, 8]} enableControls>
-              <DinoModel position={[0, -1, 0]} scale={0.8} color="#1a1a1a" />
-            </Scene3D>
+            Crafting digital
+            <br />
+            <span className="text-muted-foreground">experiences that</span>
+            <br />
+            stand out.
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-lg md:text-xl text-muted-foreground mb-12 max-w-xl leading-relaxed"
+          >
+            I help brands and startups build memorable web experiences through thoughtful design and clean code.
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap gap-4"
+          >
+            <a href="#work" className="btn-primary">
+              View My Work
+            </a>
+            <a href="#contact" className="btn-outline">
+              Get In Touch
+            </a>
           </motion.div>
         </div>
       </div>
 
-      {/* Animated ground line */}
-      <div className="absolute bottom-0 left-0 right-0 h-8 overflow-hidden">
-        <div className="ground-scroll flex whitespace-nowrap">
-          {[...Array(20)].map((_, i) => (
-            <span key={i} className="text-muted-foreground/40 text-xs mx-2">
-              ▓░▒░▓░░▒▓░▒░▓░░▒▓░▒░▓░░▒
-            </span>
-          ))}
-        </div>
-      </div>
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.2 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-2 text-muted-foreground"
+        >
+          <span className="text-mono text-xs">Scroll</span>
+          <ArrowDown size={16} />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

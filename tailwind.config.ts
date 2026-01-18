@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        pixel: ["'Press Start 2P'", "cursive"],
-        mono: ["'Space Mono'", "monospace"],
+        display: ["'Space Grotesk'", "sans-serif"],
+        mono: ["'JetBrains Mono'", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -56,7 +56,6 @@ export default {
           gray: "hsl(var(--dino-gray))",
           light: "hsl(var(--dino-light))",
         },
-        ground: "hsl(var(--ground-color))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -73,19 +72,32 @@ export default {
           to: { height: "0" },
         },
         float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-20px)" },
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateY(-30px) rotate(2deg)" },
         },
         "float-slow": {
-          "0%, 100%": { transform: "translateY(0) translateX(0)" },
-          "50%": { transform: "translateY(-10px) translateX(5px)" },
+          "0%, 100%": { transform: "translateY(0) translateX(0) rotate(0deg)" },
+          "33%": { transform: "translateY(-20px) translateX(10px) rotate(3deg)" },
+          "66%": { transform: "translateY(-10px) translateX(-5px) rotate(-2deg)" },
+        },
+        "float-reverse": {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateY(20px) rotate(-3deg)" },
+        },
+        drift: {
+          "0%, 100%": { transform: "translateX(0) translateY(0)" },
+          "25%": { transform: "translateX(20px) translateY(-15px)" },
+          "50%": { transform: "translateX(10px) translateY(-25px)" },
+          "75%": { transform: "translateX(-10px) translateY(-10px)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        float: "float 6s ease-in-out infinite",
-        "float-slow": "float-slow 8s ease-in-out infinite",
+        float: "float 8s ease-in-out infinite",
+        "float-slow": "float-slow 12s ease-in-out infinite",
+        "float-reverse": "float-reverse 10s ease-in-out infinite",
+        drift: "drift 15s ease-in-out infinite",
       },
     },
   },

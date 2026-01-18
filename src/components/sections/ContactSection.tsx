@@ -1,8 +1,5 @@
 import { motion } from 'framer-motion';
-import { Scene3D } from '../3d/Scene3D';
-import { DinoModel } from '../3d/DinoModel';
-import { BirdModel } from '../3d/BirdModel';
-import { Mail, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Send, ArrowUpRight } from 'lucide-react';
 import { useState } from 'react';
 
 export function ContactSection() {
@@ -20,80 +17,64 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-24 bg-secondary/30 overflow-hidden">
-      {/* 3D Scene with Dino and Birds */}
-      <div className="absolute bottom-10 right-10 w-64 h-48 pointer-events-none opacity-30">
-        <Scene3D cameraPosition={[0, 0, 8]}>
-          <DinoModel position={[-1, -1, 0]} scale={0.3} color="#555555" />
-          <BirdModel position={[1.5, 1, -2]} scale={0.15} speed={0.7} color="#666666" />
-        </Scene3D>
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-title">Get In Touch</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Ready to start your next project? Let's talk and make something amazing together.
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Contact Info */}
+    <section id="contact" className="section-padding bg-secondary/50 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
+            transition={{ duration: 0.6 }}
           >
-            <div className="dino-card">
-              <h3 className="text-xl font-bold mb-6 uppercase tracking-wide">Contact Info</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 border-2 border-foreground flex items-center justify-center flex-shrink-0">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <p className="font-bold uppercase text-sm mb-1">Email</p>
-                    <a href="mailto:hello@dinodev.com" className="text-muted-foreground hover:underline">
-                      hello@dinodev.com
-                    </a>
-                  </div>
+            <p className="text-mono text-muted-foreground mb-4 tracking-widest uppercase">
+              Get In Touch
+            </p>
+            <h2 className="heading-lg mb-8">
+              Let's work together
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-12 max-w-md">
+              Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing.
+            </p>
+
+            <div className="space-y-6">
+              <a 
+                href="mailto:hello@dino.dev" 
+                className="flex items-center gap-4 group"
+              >
+                <div className="w-12 h-12 rounded-full bg-card flex items-center justify-center border border-border group-hover:bg-foreground group-hover:text-background transition-colors">
+                  <Mail size={18} />
                 </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 border-2 border-foreground flex items-center justify-center flex-shrink-0">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <p className="font-bold uppercase text-sm mb-1">Location</p>
-                    <p className="text-muted-foreground">
-                      The Internet (Remote)
-                    </p>
-                  </div>
+                <div>
+                  <p className="text-mono text-xs text-muted-foreground mb-1">Email</p>
+                  <p className="font-medium group-hover:text-muted-foreground transition-colors">
+                    hello@dino.dev
+                  </p>
+                </div>
+                <ArrowUpRight size={16} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-card flex items-center justify-center border border-border">
+                  <MapPin size={18} />
+                </div>
+                <div>
+                  <p className="text-mono text-xs text-muted-foreground mb-1">Location</p>
+                  <p className="font-medium">Remote / Worldwide</p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="dino-card">
+            <form onSubmit={handleSubmit} className="card-elevated">
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block font-bold uppercase text-sm mb-2">
+                  <label htmlFor="name" className="block text-mono text-sm text-muted-foreground mb-2">
                     Name
                   </label>
                   <input
@@ -102,13 +83,13 @@ export function ContactSection() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
-                    className="w-full px-4 py-3 bg-background border-2 border-foreground focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2 transition-all"
+                    className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-foreground/20 focus:border-foreground/20 transition-all"
                     placeholder="Your name"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block font-bold uppercase text-sm mb-2">
+                  <label htmlFor="email" className="block text-mono text-sm text-muted-foreground mb-2">
                     Email
                   </label>
                   <input
@@ -117,13 +98,13 @@ export function ContactSection() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
-                    className="w-full px-4 py-3 bg-background border-2 border-foreground focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2 transition-all"
+                    className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-foreground/20 focus:border-foreground/20 transition-all"
                     placeholder="your@email.com"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block font-bold uppercase text-sm mb-2">
+                  <label htmlFor="message" className="block text-mono text-sm text-muted-foreground mb-2">
                     Message
                   </label>
                   <textarea
@@ -132,7 +113,7 @@ export function ContactSection() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
-                    className="w-full px-4 py-3 bg-background border-2 border-foreground focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2 transition-all resize-none"
+                    className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-foreground/20 focus:border-foreground/20 transition-all resize-none"
                     placeholder="Tell me about your project..."
                   />
                 </div>
@@ -141,7 +122,7 @@ export function ContactSection() {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="dino-button w-full flex items-center justify-center gap-2"
+                  className="btn-primary w-full flex items-center justify-center gap-2"
                 >
                   <Send size={18} />
                   Send Message

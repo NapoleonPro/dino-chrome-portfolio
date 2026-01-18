@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
+  { href: '#work', label: 'Work' },
   { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Projects' },
   { href: '#services', label: 'Services' },
   { href: '#contact', label: 'Contact' },
 ];
@@ -23,27 +23,29 @@ export function Navigation() {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-sm border-b-2 border-foreground' : 'bg-transparent'
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? 'bg-background/80 backdrop-blur-xl border-b border-border/50' 
+          : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+      <nav className="container mx-auto px-6 lg:px-12">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="pixel-text text-lg hover:opacity-80 transition-opacity">
-            DINO
+          <a href="#" className="text-xl font-semibold tracking-tight">
+            dino<span className="text-muted-foreground">.dev</span>
           </a>
 
           {/* Desktop Nav */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-12">
             {navItems.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="text-sm font-bold uppercase tracking-wider hover:underline underline-offset-4 decoration-2 transition-all"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 link-underline"
                 >
                   {item.label}
                 </a>
@@ -51,9 +53,17 @@ export function Navigation() {
             ))}
           </ul>
 
+          {/* CTA Button */}
+          <a 
+            href="#contact" 
+            className="hidden md:block text-sm font-medium px-6 py-2.5 bg-foreground text-background rounded-full hover:opacity-90 transition-opacity"
+          >
+            Let's Talk
+          </a>
+
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden w-10 h-10 border-2 border-foreground flex items-center justify-center"
+            className="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-muted transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -69,19 +79,24 @@ export function Navigation() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden"
+              className="md:hidden overflow-hidden border-t border-border/50"
             >
-              <ul className="py-6 space-y-4">
-                {navItems.map((item) => (
-                  <li key={item.href}>
+              <ul className="py-6 space-y-1">
+                {navItems.map((item, index) => (
+                  <motion.li 
+                    key={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
                     <a
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="block text-lg font-bold uppercase tracking-wider py-2 hover:underline underline-offset-4 decoration-2"
+                      className="block py-3 text-lg text-muted-foreground hover:text-foreground transition-colors"
                     >
                       {item.label}
                     </a>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>
