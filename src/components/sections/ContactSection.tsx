@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Scene3D } from '../3d/Scene3D';
 import { DinoModel } from '../3d/DinoModel';
-import { CloudsModel } from '../3d/CloudsModel';
+import { BirdModel } from '../3d/BirdModel';
 import { Mail, MapPin, Send } from 'lucide-react';
 import { useState } from 'react';
 
@@ -14,7 +14,6 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log('Form submitted:', formData);
     alert('Thanks for reaching out! I\'ll get back to you soon.');
     setFormData({ name: '', email: '', message: '' });
@@ -22,12 +21,11 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="relative py-24 bg-secondary/30 overflow-hidden">
-      {/* 3D Scene Background */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <Scene3D cameraPosition={[0, 0, 15]}>
-          <CloudsModel position={[-5, 3, -5]} scale={0.004} speed={0.2} color="#888888" />
-          <CloudsModel position={[6, 2, -8]} scale={0.003} speed={0.15} color="#aaaaaa" />
-          <DinoModel position={[8, -2, -3]} scale={0.3} color="#555555" />
+      {/* 3D Scene with Dino and Birds */}
+      <div className="absolute bottom-10 right-10 w-64 h-48 pointer-events-none opacity-30">
+        <Scene3D cameraPosition={[0, 0, 8]}>
+          <DinoModel position={[-1, -1, 0]} scale={0.3} color="#555555" />
+          <BirdModel position={[1.5, 1, -2]} scale={0.15} speed={0.7} color="#666666" />
         </Scene3D>
       </div>
 
@@ -82,13 +80,6 @@ export function ContactSection() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Small 3D Dino */}
-            <div className="h-48 hidden lg:block">
-              <Scene3D cameraPosition={[0, 1, 5]} enableControls>
-                <DinoModel position={[0, -0.5, 0]} scale={0.5} color="#1a1a1a" />
-              </Scene3D>
             </div>
           </motion.div>
 

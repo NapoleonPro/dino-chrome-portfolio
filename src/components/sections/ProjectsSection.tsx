@@ -33,15 +33,10 @@ const projects = [
 export function ProjectsSection() {
   return (
     <section id="projects" className="relative py-24 bg-secondary/30 overflow-hidden ground-line">
-      {/* 3D Cacti decorations */}
-      <div className="absolute bottom-0 left-10 w-32 h-48 pointer-events-none">
+      {/* Single 3D Cactus decoration */}
+      <div className="absolute bottom-0 right-10 w-32 h-48 pointer-events-none">
         <Scene3D cameraPosition={[0, 2, 5]}>
           <CactusModel position={[0, -1, 0]} scale={0.8} color="#2a2a2a" />
-        </Scene3D>
-      </div>
-      <div className="absolute bottom-0 right-20 w-24 h-40 pointer-events-none opacity-70">
-        <Scene3D cameraPosition={[0, 2, 5]}>
-          <CactusModel position={[0, -1, 0]} scale={0.6} rotate color="#3a3a3a" />
         </Scene3D>
       </div>
 
@@ -69,17 +64,9 @@ export function ProjectsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="dino-card group"
             >
+              {/* Project thumbnail placeholder */}
               <div className="aspect-video bg-accent mb-4 border-2 border-foreground flex items-center justify-center overflow-hidden">
-                <div className="w-full h-full">
-                  <Scene3D cameraPosition={[0, 1, 4]}>
-                    <CactusModel 
-                      position={[0, -0.5, 0]} 
-                      scale={0.4} 
-                      rotate 
-                      color={index === 0 ? '#333' : index === 1 ? '#555' : '#222'} 
-                    />
-                  </Scene3D>
-                </div>
+                <div className="text-4xl opacity-20">🦖</div>
               </div>
               
               <h3 className="text-xl font-bold mb-2 group-hover:underline decoration-2 underline-offset-4">

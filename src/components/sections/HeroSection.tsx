@@ -1,20 +1,10 @@
 import { motion } from 'framer-motion';
 import { Scene3D } from '../3d/Scene3D';
 import { DinoModel } from '../3d/DinoModel';
-import { CloudsModel } from '../3d/CloudsModel';
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden ground-line">
-      {/* Background clouds 3D */}
-      <div className="absolute inset-0 pointer-events-none opacity-30">
-        <Scene3D cameraPosition={[0, 0, 10]}>
-          <CloudsModel position={[-4, 2, -5]} scale={0.003} speed={0.2} color="#cccccc" />
-          <CloudsModel position={[5, 3, -8]} scale={0.004} speed={0.15} color="#dddddd" />
-          <CloudsModel position={[0, 4, -6]} scale={0.002} speed={0.25} color="#bbbbbb" />
-        </Scene3D>
-      </div>
-
       <div className="container mx-auto px-6 z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}

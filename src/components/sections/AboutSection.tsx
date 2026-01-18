@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Scene3D } from '../3d/Scene3D';
-import { CloudsModel } from '../3d/CloudsModel';
+import { BirdModel } from '../3d/BirdModel';
 
 const skills = [
   { name: 'React', level: 95 },
@@ -14,10 +14,10 @@ const skills = [
 export function AboutSection() {
   return (
     <section id="about" className="relative py-24 overflow-hidden">
-      {/* Floating clouds 3D */}
-      <div className="absolute top-0 right-0 w-1/3 h-64 pointer-events-none opacity-40">
-        <Scene3D cameraPosition={[0, 0, 8]}>
-          <CloudsModel position={[0, 0, 0]} scale={0.004} speed={0.3} color="#999999" />
+      {/* Floating bird 3D */}
+      <div className="absolute top-10 right-10 w-48 h-32 pointer-events-none opacity-60">
+        <Scene3D cameraPosition={[0, 0, 5]}>
+          <BirdModel position={[0, 0, 0]} scale={0.3} speed={0.5} color="#555555" />
         </Scene3D>
       </div>
 
