@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,94 +6,79 @@
 
 @layer base {
   :root {
-    /* Chrome Dino monochrome theme */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    /* Sophisticated monochrome */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 7%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover-foreground: 0 0% 7%;
 
-    --primary: 0 0% 8%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 92%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 7%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
 
     --accent: 0 0% 88%;
-    --accent-foreground: 0 0% 8%;
+    --accent-foreground: 0 0% 7%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 85%;
-    --input: 0 0% 85%;
-    --ring: 0 0% 8%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 7%;
 
-    --radius: 0.25rem;
+    --radius: 0.75rem;
 
-    /* Custom Chrome Dino colors */
-    --dino-dark: 0 0% 15%;
-    --dino-gray: 0 0% 45%;
+    /* Custom tokens */
+    --dino-dark: 0 0% 10%;
+    --dino-gray: 0 0% 50%;
     --dino-light: 0 0% 96%;
-    --ground-color: 0 0% 70%;
 
     /* Fonts */
-    --font-pixel: 'Press Start 2P', cursive;
-    --font-mono: 'Space Mono', monospace;
-
-    /* Gradients */
-    --gradient-ground: linear-gradient(180deg, transparent 0%, hsl(0 0% 92%) 100%);
-    --gradient-sky: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 96%) 100%);
-
-    /* Shadows */
-    --shadow-pixel: 4px 4px 0px hsl(var(--foreground));
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 96%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 96%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 0 0% 96%;
-    --primary-foreground: 0 0% 8%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 7%;
 
-    --secondary: 0 0% 18%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 0 0% 18%;
+    --muted: 0 0% 15%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 0 0% 22%;
-    --accent-foreground: 0 0% 96%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 95%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 96%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
     --ring: 0 0% 80%;
 
-    --dino-dark: 0 0% 85%;
-    --dino-gray: 0 0% 55%;
-    --dino-light: 0 0% 15%;
-    --ground-color: 0 0% 30%;
-
-    --gradient-ground: linear-gradient(180deg, transparent 0%, hsl(0 0% 15%) 100%);
-    --gradient-sky: linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 12%) 100%);
-
-    --shadow-pixel: 4px 4px 0px hsl(var(--foreground));
+    --dino-dark: 0 0% 90%;
+    --dino-gray: 0 0% 50%;
+    --dino-light: 0 0% 10%;
   }
 }
 
@@ -103,8 +88,8 @@
   }
 
   body {
-    @apply bg-background text-foreground font-mono antialiased;
-    font-family: var(--font-mono);
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-display);
   }
 
   html {
@@ -113,60 +98,64 @@
 }
 
 @layer components {
-  .pixel-text {
-    font-family: var(--font-pixel);
-    text-shadow: 2px 2px 0px hsl(var(--muted-foreground) / 0.3);
+  .heading-xl {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none;
+    font-family: var(--font-display);
   }
 
-  .ground-line {
-    position: relative;
+  .heading-lg {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight;
+    font-family: var(--font-display);
   }
 
-  .ground-line::after {
+  .heading-md {
+    @apply text-xl md:text-2xl font-semibold tracking-tight;
+    font-family: var(--font-display);
+  }
+
+  .text-mono {
+    font-family: var(--font-mono);
+    @apply text-sm tracking-wide;
+  }
+
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: repeating-linear-gradient(
-      90deg,
-      hsl(var(--foreground)) 0px,
-      hsl(var(--foreground)) 12px,
-      transparent 12px,
-      transparent 18px
-    );
+    @apply absolute bottom-0 left-0 w-full h-px bg-foreground transform scale-x-0 origin-right transition-transform duration-300;
   }
 
-  .dino-button {
-    @apply px-6 py-3 bg-primary text-primary-foreground font-bold uppercase tracking-wider transition-all duration-200;
-    box-shadow: var(--shadow-pixel);
+  .link-underline:hover::after {
+    @apply scale-x-100 origin-left;
   }
 
-  .dino-button:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px hsl(var(--foreground));
+  .card-elevated {
+    @apply bg-card rounded-2xl p-8 transition-all duration-500;
+    box-shadow: 0 0 0 1px hsl(var(--border));
   }
 
-  .dino-button:active {
-    transform: translate(4px, 4px);
-    box-shadow: none;
+  .card-elevated:hover {
+    box-shadow: 0 0 0 1px hsl(var(--foreground) / 0.2), 0 25px 50px -12px hsl(var(--foreground) / 0.1);
+    transform: translateY(-4px);
   }
 
-  .section-title {
-    @apply text-2xl md:text-3xl lg:text-4xl font-bold mb-8;
-    font-family: var(--font-pixel);
-    letter-spacing: 0.05em;
+  .btn-primary {
+    @apply px-8 py-4 bg-foreground text-background font-medium rounded-full transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98];
   }
 
-  .dino-card {
-    @apply bg-card p-6 border-2 border-foreground transition-all duration-200;
-    box-shadow: var(--shadow-pixel);
+  .btn-outline {
+    @apply px-8 py-4 border border-foreground/20 text-foreground font-medium rounded-full transition-all duration-300 hover:bg-foreground hover:text-background;
   }
 
-  .dino-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px hsl(var(--foreground));
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .floating-element {
+    @apply pointer-events-none fixed opacity-[0.08];
+    z-index: 0;
   }
 }
 
@@ -174,47 +163,22 @@
   .text-balance {
     text-wrap: balance;
   }
-
-  .animate-bounce-slow {
-    animation: bounce 3s infinite;
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-run {
-    animation: run 0.4s steps(2) infinite;
-  }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@keyframes run {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
 }
 
-@keyframes ground-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
 }
 
-.ground-scroll {
-  animation: ground-scroll 2s linear infinite;
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }

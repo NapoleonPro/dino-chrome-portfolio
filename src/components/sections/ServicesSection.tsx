@@ -1,56 +1,49 @@
 import { motion } from 'framer-motion';
-import { Scene3D } from '../3d/Scene3D';
-import { CloudsModel } from '../3d/CloudsModel';
-import { Code2, Palette, Rocket, Zap } from 'lucide-react';
+import { Code2, Palette, Layers, Zap } from 'lucide-react';
 
 const services = [
   {
     icon: Code2,
     title: 'Web Development',
-    description: 'Building fast, responsive, and scalable web applications with modern technologies.',
+    description: 'Building performant, accessible, and scalable web applications using modern frameworks and best practices.',
   },
   {
     icon: Palette,
     title: 'UI/UX Design',
-    description: 'Creating intuitive interfaces that users love to interact with.',
+    description: 'Creating intuitive interfaces and seamless user experiences that delight and convert.',
   },
   {
-    icon: Rocket,
-    title: '3D Experiences',
-    description: 'Crafting immersive 3D web experiences that stand out from the crowd.',
+    icon: Layers,
+    title: 'Creative Development',
+    description: 'Crafting immersive digital experiences with animations, 3D graphics, and interactive elements.',
   },
   {
     icon: Zap,
-    title: 'Performance',
-    description: 'Optimizing applications for speed and efficiency at every level.',
+    title: 'Performance Optimization',
+    description: 'Ensuring blazing-fast load times and smooth interactions for the best user experience.',
   },
 ];
 
 export function ServicesSection() {
   return (
-    <section id="services" className="relative py-24 overflow-hidden">
-      {/* Floating clouds */}
-      <div className="absolute top-20 left-10 w-48 h-32 pointer-events-none opacity-40">
-        <Scene3D cameraPosition={[0, 0, 8]}>
-          <CloudsModel position={[0, 0, 0]} scale={0.004} speed={0.3} color="#888888" />
-        </Scene3D>
-      </div>
-
-      <div className="container mx-auto px-6">
+    <section id="services" className="section-padding relative z-10">
+      <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-16 md:mb-24 text-center"
         >
-          <h2 className="section-title">What I Do</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Jump higher, run faster. Here's how I can help your project succeed.
+          <p className="text-mono text-muted-foreground mb-4 tracking-widest uppercase">
+            Services
           </p>
+          <h2 className="heading-lg max-w-2xl mx-auto">
+            How I can help you
+          </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -58,17 +51,13 @@ export function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="dino-card text-center group"
+              className="card-elevated group"
             >
-              <div className="w-16 h-16 mx-auto mb-6 border-2 border-foreground flex items-center justify-center bg-background group-hover:bg-foreground group-hover:text-background transition-colors">
-                <service.icon size={28} />
+              <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center mb-6 group-hover:bg-foreground group-hover:text-background transition-colors duration-300">
+                <service.icon size={24} />
               </div>
-              
-              <h3 className="text-lg font-bold mb-3 uppercase tracking-wide">
-                {service.title}
-              </h3>
-              
-              <p className="text-muted-foreground text-sm">
+              <h3 className="heading-md mb-4">{service.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">
                 {service.description}
               </p>
             </motion.div>
