@@ -1,0 +1,294 @@
+{
+  "asset": {
+    "generator": "OpenSceneGraph 3.5.4",
+    "version": "2.0"
+  },
+  "accessors": [
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 562,
+      "bufferView": 0,
+      "byteOffset": 0
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 562,
+      "max": [
+        471.125244140625,
+        593.7036743164062,
+        238.34243774414062
+      ],
+      "min": [
+        0,
+        0,
+        0
+      ],
+      "bufferView": 0,
+      "byteOffset": 12
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 3090,
+      "bufferView": 1,
+      "byteOffset": 0
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 270,
+      "bufferView": 1,
+      "byteOffset": 6180
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 562,
+      "bufferView": 2,
+      "byteOffset": 0
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 562,
+      "max": [
+        471.125244140625,
+        593.7036743164062,
+        238.34243774414062
+      ],
+      "min": [
+        0,
+        0,
+        0
+      ],
+      "bufferView": 2,
+      "byteOffset": 12
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 13488,
+      "byteStride": 24,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 13488,
+      "byteLength": 6720,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 20208,
+      "byteLength": 13488,
+      "byteStride": 24,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "Clouds.bin",
+      "byteLength": 33696
+    }
+  ],
+  "materials": [
+    {
+      "name": "%%%DEFAULT",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.3,
+          0.3,
+          0.3,
+          1
+        ],
+        "roughnessFactor": 0.6,
+        "metallicFactor": 0
+      },
+      "extensions": {
+        "KHR_materials_specular": {
+          "specularFactor": 0.5,
+          "specularColorFactor": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "GeometryNode_4_0",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1,
+            "NORMAL": 0
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 2
+        }
+      ]
+    },
+    {
+      "name": "GeometryNode_4_1",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 5,
+            "NORMAL": 4
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 3
+        }
+      ]
+    }
+  ],
+  "cameras": [
+    {
+      "name": "Camera_0",
+      "type": "perspective",
+      "perspective": {
+        "znear": 0.01,
+        "zfar": 6920.923709250065,
+        "yfov": 0.7853981633974483
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "name": "cloud.obj.cleaner.gles",
+      "translation": [
+        -228.14100646972656,
+        -280.375,
+        -22.734399795532227
+      ],
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "Group_1",
+      "children": [
+        2
+      ]
+    },
+    {
+      "name": "n0b0_0",
+      "children": [
+        3
+      ]
+    },
+    {
+      "name": "GeometryGroup_4",
+      "children": [
+        4,
+        5
+      ]
+    },
+    {
+      "name": "GeometryNode_4_0",
+      "mesh": 0
+    },
+    {
+      "name": "GeometryNode_4_1",
+      "mesh": 1
+    },
+    {
+      "name": "Light_0",
+      "extensions": {
+        "KHR_lights_punctual": {
+          "light": 0
+        }
+      }
+    },
+    {
+      "name": "Light_1",
+      "extensions": {
+        "KHR_lights_punctual": {
+          "light": 1
+        }
+      }
+    },
+    {
+      "name": "Light_2",
+      "extensions": {
+        "KHR_lights_punctual": {
+          "light": 2
+        }
+      }
+    },
+    {
+      "name": "Camera_0",
+      "camera": 0
+    },
+    {
+      "name": "Sketchfab_model",
+      "translation": [
+        -17.04205322265625,
+        -90.61456298828125,
+        -725.6364135742188
+      ],
+      "rotation": [
+        -0.43921980108877307,
+        -0.40375005017501775,
+        -0.5431235059121113,
+        0.5908373100744209
+      ],
+      "children": [
+        0,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        10
+      ]
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_lights_punctual",
+    "KHR_materials_specular"
+  ],
+  "extensions": {
+    "KHR_lights_punctual": {
+      "lights": [
+        {
+          "type": "directional",
+          "color": [
+            1,
+            0.5044247787610621,
+            0
+          ],
+          "intensity": 2.080000000000001,
+          "range": 0.000024752468730785576,
+          "name": "Light_0"
+        },
+        {
+          "type": "directional",
+          "range": 0.000024752468730785576,
+          "name": "Light_1"
+        },
+        {
+          "type": "directional",
+          "intensity": 0.12,
+          "range": 0.000024752468730785576,
+          "name": "Light_2"
+        }
+      ]
+    }
+  }
+}
