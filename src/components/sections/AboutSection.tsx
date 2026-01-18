@@ -8,8 +8,8 @@ const stats = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="section-padding bg-secondary/50 relative z-10">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="about" className="h-full bg-secondary/50 relative z-10 flex items-center justify-center">
+      <div className="container mx-auto px-6 lg:px-12 py-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}

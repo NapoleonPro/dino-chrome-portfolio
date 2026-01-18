@@ -26,14 +26,14 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="section-padding relative z-10">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="services" className="h-full relative z-10 flex items-center justify-center">
+      <div className="container mx-auto px-6 lg:px-12 py-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 md:mb-24 text-center"
+          className="mb-16 text-center"
         >
           <p className="text-mono text-muted-foreground mb-4 tracking-widest uppercase">
             Services

@@ -20,14 +20,28 @@ const Index = () => {
         <FloatingAssets />
         
         <Navigation />
-        <main className="relative z-10">
-          <HeroSection />
-          <ProjectsSection />
-          <AboutSection />
-          <ServicesSection />
-          <ContactSection />
+        
+        {/* Snap Container - Smooth Scroll */}
+        <main className="snap-container relative z-10">
+          <section className="snap-section h-screen">
+            <HeroSection />
+          </section>
+          <section className="snap-section min-h-screen">
+            <ProjectsSection />
+          </section>
+          <section className="snap-section h-screen">
+            <AboutSection />
+          </section>
+          <section className="snap-section h-screen">
+            <ServicesSection />
+          </section>
+          <section className="snap-section min-h-screen">
+            <ContactSection />
+          </section>
+          <section className="snap-section">
+            <Footer />
+          </section>
         </main>
-        <Footer />
       </div>
     </ThemeProvider>
   );
