@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Scene3D } from '../3d/Scene3D';
-import { DinoModel } from '../3d/DinoModel';
+import { CloudsModel } from '../3d/CloudsModel';
 import { Code2, Palette, Rocket, Zap } from 'lucide-react';
 
 const services = [
@@ -29,10 +29,10 @@ const services = [
 export function ServicesSection() {
   return (
     <section id="services" className="relative py-24 overflow-hidden">
-      {/* 3D Dino floating */}
-      <div className="absolute top-1/2 right-0 w-48 h-64 pointer-events-none opacity-20 transform -translate-y-1/2">
-        <Scene3D cameraPosition={[0, 2, 6]}>
-          <DinoModel position={[0, 0, 0]} scale={0.4} color="#666666" />
+      {/* Floating clouds */}
+      <div className="absolute top-20 left-10 w-48 h-32 pointer-events-none opacity-40">
+        <Scene3D cameraPosition={[0, 0, 8]}>
+          <CloudsModel position={[0, 0, 0]} scale={0.004} speed={0.3} color="#888888" />
         </Scene3D>
       </div>
 
