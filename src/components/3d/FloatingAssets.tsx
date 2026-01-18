@@ -3,49 +3,59 @@ import { DinoModel } from './DinoModel';
 import { BirdModel } from './BirdModel';
 import { CloudsModel } from './CloudsModel';
 import { CactusModel } from './CactusModel';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 export function FloatingAssets() {
+  const themeColor = useThemeColor();
+
   return (
     <>
-      {/* Dino - top right area */}
-      <div className="floating-element top-[15%] right-[8%] w-48 h-48 animate-float">
-        <Scene3D cameraPosition={[0, 1, 6]} floatIntensity={0.5}>
-          <DinoModel position={[0, 0, 0]} scale={0.5} color="#1a1a1a" animate={false} />
+      {/* Large Dino - top right area */}
+      <div className="floating-element top-[12%] right-[5%] w-72 h-72 animate-float opacity-40">
+        <Scene3D cameraPosition={[0, 1, 4]} floatIntensity={0.5}>
+          <DinoModel position={[0, 0, 0]} scale={0.8} color={themeColor} animate={false} />
         </Scene3D>
       </div>
 
-      {/* Bird - left middle */}
-      <div className="floating-element top-[40%] left-[5%] w-40 h-40 animate-float-slow">
-        <Scene3D cameraPosition={[0, 0, 5]} floatIntensity={0.8}>
-          <BirdModel position={[0, 0, 0]} scale={0.25} speed={0.3} color="#2a2a2a" />
+      {/* Bird - left upper */}
+      <div className="floating-element top-[20%] left-[3%] w-64 h-64 animate-float-slow opacity-35">
+        <Scene3D cameraPosition={[0, 0, 3]} floatIntensity={0.8}>
+          <BirdModel position={[0, 0, 0]} scale={0.5} speed={0.3} color={themeColor} />
         </Scene3D>
       </div>
 
-      {/* Another Bird - right bottom */}
-      <div className="floating-element bottom-[20%] right-[12%] w-32 h-32 animate-drift">
-        <Scene3D cameraPosition={[0, 0, 5]} floatIntensity={0.6}>
-          <BirdModel position={[0, 0, 0]} scale={0.2} speed={0.5} color="#3a3a3a" />
+      {/* Another Bird - right middle */}
+      <div className="floating-element top-[55%] right-[8%] w-56 h-56 animate-drift opacity-30">
+        <Scene3D cameraPosition={[0, 0, 3]} floatIntensity={0.6}>
+          <BirdModel position={[0, 0, 0]} scale={0.4} speed={0.5} color={themeColor} />
         </Scene3D>
       </div>
 
       {/* Clouds - top left */}
-      <div className="floating-element top-[25%] left-[15%] w-56 h-40 animate-float-reverse">
-        <Scene3D cameraPosition={[0, 0, 10]} floatIntensity={0.3}>
-          <CloudsModel position={[0, 0, 0]} scale={0.003} speed={0.2} color="#666666" />
+      <div className="floating-element top-[35%] left-[10%] w-80 h-56 animate-float-reverse opacity-25">
+        <Scene3D cameraPosition={[0, 0, 6]} floatIntensity={0.3}>
+          <CloudsModel position={[0, 0, 0]} scale={0.006} speed={0.2} color={themeColor} />
         </Scene3D>
       </div>
 
       {/* Cactus - bottom left */}
-      <div className="floating-element bottom-[15%] left-[10%] w-36 h-48 animate-float">
-        <Scene3D cameraPosition={[0, 1, 5]} floatIntensity={0.4}>
-          <CactusModel position={[0, -0.5, 0]} scale={0.6} color="#1a1a1a" />
+      <div className="floating-element bottom-[10%] left-[5%] w-64 h-72 animate-float opacity-40">
+        <Scene3D cameraPosition={[0, 1, 3]} floatIntensity={0.4}>
+          <CactusModel position={[0, -0.5, 0]} scale={1} color={themeColor} />
         </Scene3D>
       </div>
 
-      {/* Small Dino - bottom center-right */}
-      <div className="floating-element bottom-[35%] right-[25%] w-28 h-28 animate-float-slow opacity-[0.05]">
-        <Scene3D cameraPosition={[0, 1, 8]} floatIntensity={0.7}>
-          <DinoModel position={[0, 0, 0]} scale={0.3} color="#000000" animate={false} />
+      {/* Dino - bottom center-right */}
+      <div className="floating-element bottom-[25%] right-[20%] w-48 h-48 animate-float-slow opacity-30">
+        <Scene3D cameraPosition={[0, 1, 5]} floatIntensity={0.7}>
+          <DinoModel position={[0, 0, 0]} scale={0.5} color={themeColor} animate={false} />
+        </Scene3D>
+      </div>
+
+      {/* Additional Clouds - right side */}
+      <div className="floating-element top-[70%] left-[60%] w-72 h-48 animate-drift opacity-20">
+        <Scene3D cameraPosition={[0, 0, 6]} floatIntensity={0.5}>
+          <CloudsModel position={[0, 0, 0]} scale={0.005} speed={0.15} color={themeColor} />
         </Scene3D>
       </div>
     </>

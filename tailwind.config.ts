@@ -90,6 +90,10 @@ export default {
           "50%": { transform: "translateX(10px) translateY(-25px)" },
           "75%": { transform: "translateX(-10px) translateY(-10px)" },
         },
+        twinkle: {
+          "0%, 100%": { opacity: "0.3", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.2)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -98,6 +102,7 @@ export default {
         "float-slow": "float-slow 12s ease-in-out infinite",
         "float-reverse": "float-reverse 10s ease-in-out infinite",
         drift: "drift 15s ease-in-out infinite",
+        twinkle: "twinkle 3s ease-in-out infinite",
       },
     },
   },
