@@ -1,0 +1,268 @@
+{
+  "asset": {
+    "generator": "OpenSceneGraph 3.5.6",
+    "version": "2.0"
+  },
+  "accessors": [
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1279,
+      "bufferView": 0,
+      "byteOffset": 0
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1279,
+      "max": [
+        4.740022659301758,
+        0.16538166999816895,
+        4.917747497558594
+      ],
+      "min": [
+        -4.68064022064209,
+        -1,
+        -4.683889865875244
+      ],
+      "bufferView": 0,
+      "byteOffset": 12
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 2304,
+      "bufferView": 1,
+      "byteOffset": 0
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 30696,
+      "byteStride": 24,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 30696,
+      "byteLength": 4608,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "Chrome Dino.bin",
+      "byteLength": 35304
+    }
+  ],
+  "materials": [
+    {
+      "name": "Material.001",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ],
+        "metallicFactor": 0
+      },
+      "extensions": {
+        "KHR_materials_specular": {
+          "specularFactor": 0.5,
+          "specularColorFactor": [
+            0.2,
+            0.2,
+            0.2
+          ]
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Cube_Material.001_0",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1,
+            "NORMAL": 0
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 2
+        }
+      ]
+    }
+  ],
+  "cameras": [
+    {
+      "name": "Camera_0",
+      "type": "perspective",
+      "perspective": {
+        "znear": 2.32,
+        "zfar": 464,
+        "yfov": 0.7853981633974483
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "name": "1be80f025d114183ad0100fb8e39bf41.fbx",
+      "rotation": [
+        0.7071067811865475,
+        0,
+        0,
+        0.7071067811865476
+      ],
+      "scale": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ],
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "RootNode",
+      "children": [
+        2
+      ]
+    },
+    {
+      "name": "Cube",
+      "translation": [
+        -0.009556019678711891,
+        100,
+        -21.22640037536621
+      ],
+      "rotation": [
+        -0.7071068387876399,
+        0,
+        0,
+        0.7071067235854505
+      ],
+      "scale": [
+        50.97480010986328,
+        50.974800109863956,
+        50.974800109863956
+      ],
+      "children": [
+        3
+      ]
+    },
+    {
+      "name": "Cube",
+      "children": [
+        4
+      ]
+    },
+    {
+      "name": "Cube_Material.001_0",
+      "mesh": 0
+    },
+    {
+      "name": "Light_0",
+      "extensions": {
+        "KHR_lights_punctual": {
+          "light": 0
+        }
+      }
+    },
+    {
+      "name": "Light_1",
+      "extensions": {
+        "KHR_lights_punctual": {
+          "light": 1
+        }
+      }
+    },
+    {
+      "name": "Light_2",
+      "extensions": {
+        "KHR_lights_punctual": {
+          "light": 2
+        }
+      }
+    },
+    {
+      "name": "Camera_0",
+      "camera": 0
+    },
+    {
+      "name": "Sketchfab_model",
+      "translation": [
+        -0.015039479359984398,
+        -1.0076018571853638,
+        -9.320308685302734
+      ],
+      "rotation": [
+        -0.5877852446489925,
+        0,
+        0,
+        0.809016999928261
+      ],
+      "children": [
+        0,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        9
+      ]
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_lights_punctual",
+    "KHR_materials_specular"
+  ],
+  "extensions": {
+    "KHR_lights_punctual": {
+      "lights": [
+        {
+          "type": "directional",
+          "color": [
+            0.7806122448979592,
+            0.7985214493960848,
+            1
+          ],
+          "intensity": 0.96,
+          "range": 0.32985721421306624,
+          "name": "Light_0"
+        },
+        {
+          "type": "directional",
+          "color": [
+            1,
+            0.8783319450229073,
+            0.7091836734693877
+          ],
+          "range": 0.32985721421306624,
+          "name": "Light_1"
+        },
+        {
+          "type": "directional",
+          "color": [
+            0.423469387755102,
+            0.7352665556018328,
+            1
+          ],
+          "intensity": 0.12,
+          "range": 0.32985721421306624,
+          "name": "Light_2"
+        }
+      ]
+    }
+  }
+}
