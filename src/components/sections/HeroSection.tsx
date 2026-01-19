@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
+import { TypeAnimation } from 'react-type-animation';
 
 export function HeroSection() {
   return (
@@ -16,23 +17,28 @@ export function HeroSection() {
             </p>
           </motion.div>
           
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="heading-xl mb-8"
-          >
+          <h1 className="heading-xl mb-8 min-h-[250px] md:min-h-[280px]">
             Crafting digital
             <br />
             <span className="text-muted-foreground">experiences that</span>
             <br />
-            stand out.
-          </motion.h1>
+            <TypeAnimation
+              sequence={[
+                'stand out.',
+                3000,
+                '',
+              ]}
+              speed={50}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+            />
+          </h1>
           
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
             className="text-lg md:text-xl text-muted-foreground mb-12 max-w-xl leading-relaxed"
           >
             I help brands and startups build memorable web experiences through thoughtful design and clean code.
@@ -41,7 +47,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
             className="flex flex-wrap gap-4"
           >
             <a href="#work" className="btn-primary">
@@ -58,7 +64,7 @@ export function HeroSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
+        transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2"
       >
         <motion.div

@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { ThemeProvider } from 'next-themes';
 import { Navigation } from '../components/Navigation';
 import { HeroSection } from '../components/sections/HeroSection';
@@ -10,6 +11,8 @@ import { FloatingAssets } from '../components/3d/FloatingAssets';
 import { StarsBackground } from '../components/StarsBackground';
 
 const Index = () => {
+  const mainRef = useRef<HTMLElement>(null);
+
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -19,10 +22,10 @@ const Index = () => {
         {/* Floating 3D Assets - background decoration */}
         <FloatingAssets />
         
-        <Navigation />
+        <Navigation scrollContainerRef={mainRef} />
         
         {/* Snap Container - Smooth Scroll */}
-        <main className="snap-container relative z-10">
+        <main ref={mainRef} className="snap-container relative z-10">
           <section className="snap-section h-screen">
             <HeroSection />
           </section>

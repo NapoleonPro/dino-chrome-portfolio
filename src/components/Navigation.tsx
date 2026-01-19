@@ -12,7 +12,11 @@ const navItems = [
 ];
 const sectionIds = navItems.map(item => item.href.substring(1));
 
-export function Navigation() {
+type NavigationProps = {
+  scrollContainerRef: React.RefObject<HTMLElement>;
+};
+
+export function Navigation({ scrollContainerRef }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -22,8 +26,11 @@ export function Navigation() {
   const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
     const masterLogicHandler = () => {
-      const currentScrollY = window.scrollY;
+      const currentScrollY = scrollContainer.scrollTop;
       const inHero = currentScrollY < 100;
       
       // Exception: Always show in hero section
@@ -48,19 +55,20 @@ export function Navigation() {
     };
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = scrollContainer.scrollTop;
+      setIsScrolled(currentScrollY > 50);
       masterLogicHandler();
-      lastScrollY.current = window.scrollY;
+      lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('mousemove', handleMouseMove);
     
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      scrollContainer.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [scrollContainerRef]);
 
   return (
     <header
