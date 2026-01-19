@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
+import { useActiveSection } from '../hooks/useActiveSection';
 
 const navItems = [
   { href: '#work', label: 'Work' },
@@ -9,29 +10,68 @@ const navItems = [
   { href: '#services', label: 'Services' },
   { href: '#contact', label: 'Contact' },
 ];
+const sectionIds = navItems.map(item => item.href.substring(1));
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  
+  const lastScrollY = useRef(0);
+  const mouseAtTop = useRef(true);
+  const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
+    const masterLogicHandler = () => {
+      const currentScrollY = window.scrollY;
+      const inHero = currentScrollY < 100;
+      
+      // Exception: Always show in hero section
+      if (inHero) {
+        setIsVisible(true);
+        return;
+      }
+      
+      const scrollingUp = currentScrollY < lastScrollY.current;
+
+      // Show if scrolling up OR if mouse is at the top
+      if (scrollingUp || mouseAtTop.current) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseAtTop.current = e.clientY < 100;
+      masterLogicHandler();
+    };
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      masterLogicHandler();
+      lastScrollY.current = window.scrollY;
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-background/80 backdrop-blur-xl border-b border-border/50' 
           : 'bg-transparent'
+      } ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
+      style={{ willChange: 'transform' }}
     >
       <nav className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
@@ -42,16 +82,21 @@ export function Navigation() {
 
           {/* Desktop Nav */}
           <ul className="hidden md:flex items-center gap-12">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 link-underline"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.substring(1);
+              return (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className={`text-sm transition-colors duration-300 link-underline ${
+                      isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Right side actions */}
@@ -84,7 +129,6 @@ export function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden border-t border-border/50"
             >
               <ul className="py-6 space-y-1">
@@ -109,6 +153,6 @@ export function Navigation() {
           )}
         </AnimatePresence>
       </nav>
-    </motion.header>
+    </header>
   );
 }

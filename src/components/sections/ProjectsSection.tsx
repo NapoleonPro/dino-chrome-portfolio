@@ -38,14 +38,13 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section id="work" className="section-padding relative z-10">
+    <section id="work" className="h-screen relative z-10 flex flex-col justify-center">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 md:mb-24"
+          className="mb-12"
         >
           <p className="text-mono text-muted-foreground mb-4 tracking-widest uppercase">
             Selected Work
@@ -55,19 +54,18 @@ export function ProjectsSection() {
           </h2>
         </motion.div>
 
-        <div className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <motion.a
               key={project.id}
               href={project.link}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
               className="group block"
             >
-              <div className="card-elevated flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-                <div className="flex-1">
+              <div className="card-elevated flex flex-col h-full">
+                <div className="flex-grow">
                   <div className="flex items-center gap-4 mb-3">
                     <span className="text-mono text-muted-foreground">
                       {project.category}
@@ -80,11 +78,11 @@ export function ProjectsSection() {
                   <h3 className="heading-md mb-2 group-hover:text-muted-foreground transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground max-w-lg">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {project.description}
                   </p>
                 </div>
-                <div className="flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="mt-6 flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   View Project <ArrowUpRight size={16} />
                 </div>
               </div>

@@ -92,46 +92,14 @@
     font-family: var(--font-display);
   }
 
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
   html {
-    scroll-behavior: auto; /* Nonaktifkan snap instant */
-  }
-
-  /* SNAP SCROLLING YANG LEBIH SMOOTH & NATURAL */
-  .snap-container {
-    scroll-snap-type: y proximity; /* proximity = lebih lenient */
-    scroll-behavior: smooth;
-    overflow-y: auto;
-    height: 100vh;
-  }
-
-  .snap-section {
-    scroll-snap-align: start;
-    scroll-snap-stop: normal; /* Bisa skip section */
-  }
-
-  /* Smooth scroll untuk semua browser */
-  @media (prefers-reduced-motion: no-preference) {
-    .snap-container {
-      scroll-behavior: smooth;
-    }
-  }
-
-  /* Custom smooth scrollbar */
-  .snap-container::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .snap-container::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .snap-container::-webkit-scrollbar-thumb {
-    background: hsl(var(--muted-foreground) / 0.3);
-    border-radius: 4px;
-  }
-
-  .snap-container::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--muted-foreground) / 0.5);
+    /* Properties moved to .snap-container */
   }
 }
 
@@ -207,10 +175,40 @@
     animation: twinkle var(--duration, 3s) ease-in-out infinite;
     animation-delay: var(--delay, 0s);
   }
+
+  /* Scroll Snap */
+  .snap-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .snap-section {
+    scroll-snap-align: start;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }

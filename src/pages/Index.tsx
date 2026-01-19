@@ -38,9 +38,6 @@ const Index = () => {
           <section className="snap-section min-h-screen">
             <ContactSection />
           </section>
-          <section className="snap-section">
-            <Footer />
-          </section>
         </main>
       </div>
     </ThemeProvider>

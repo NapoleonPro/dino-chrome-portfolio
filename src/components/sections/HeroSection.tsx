@@ -17,7 +17,7 @@ export function HeroSection() {
           </motion.div>
           
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="heading-xl mb-8"
@@ -39,8 +39,8 @@ export function HeroSection() {
           </motion.p>
           
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-wrap gap-4"
           >

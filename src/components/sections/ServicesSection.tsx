@@ -31,7 +31,7 @@ export function ServicesSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
@@ -47,9 +47,9 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="card-elevated group"
             >

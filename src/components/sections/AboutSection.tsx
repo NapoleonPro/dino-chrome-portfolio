@@ -8,13 +8,13 @@ const stats = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="h-full bg-secondary/50 relative z-10 flex items-center justify-center">
+    <section id="about" className="h-full relative z-10 flex items-center justify-center bg-card/10 backdrop-blur-lg border-y border-border/20">
       <div className="container mx-auto px-6 lg:px-12 py-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            
             transition={{ duration: 0.6 }}
           >
             <p className="text-mono text-muted-foreground mb-4 tracking-widest uppercase">
@@ -39,16 +39,16 @@ export function AboutSection() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            
             transition={{ duration: 0.6, delay: 0.2 }}
             className="grid grid-cols-1 gap-6"
           >
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 className="card-elevated text-center md:text-left"
               >
