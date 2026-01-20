@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Custom Cursor Styles */
+body, a, button {
+  cursor: none;
+}
