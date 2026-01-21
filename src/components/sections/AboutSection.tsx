@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 
 const stats = [
-  { value: '5+', label: 'Years Experience' },
-  { value: '50+', label: 'Projects Completed' },
-  { value: '30+', label: 'Happy Clients' },
+  { value: '~2.5', label: 'Years of Experience' },
+  { value: '6+', label: 'Projects Completed' },
+  { value: 'Top 180', label: 'Innovillage 2023 Finalist' },
 ];
 
 export function AboutSection() {

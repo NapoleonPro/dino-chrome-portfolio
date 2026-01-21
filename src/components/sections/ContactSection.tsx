@@ -40,7 +40,7 @@ export function ContactSection() {
 
               <div className="space-y-6">
                 <a 
-                  href="mailto:hello@dino.dev" 
+                  href="mailto:akpp020405@gmail.com" 
                   className="flex items-center gap-4 group"
                 >
                   <div className="w-12 h-12 rounded-full bg-card flex items-center justify-center border border-border group-hover:bg-foreground group-hover:text-background transition-colors">
@@ -49,7 +49,7 @@ export function ContactSection() {
                   <div>
                     <p className="text-mono text-xs text-muted-foreground mb-1">Email</p>
                     <p className="font-medium group-hover:text-muted-foreground transition-colors">
-                      hello@dino.dev
+                      akpp020405@gmail.com
                     </p>
                   </div>
                   <ArrowUpRight size={16} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />

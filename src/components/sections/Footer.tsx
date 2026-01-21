@@ -18,14 +18,18 @@ export function Footer() {
 
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="https://github.com/NapoleonPro"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
               aria-label="GitHub"
             >
               <Github size={18} />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/akbar-permana-9073932a3"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
               aria-label="LinkedIn"
             >

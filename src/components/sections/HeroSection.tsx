@@ -77,7 +77,7 @@ export function HeroSection() {
             <a href="#work" className="btn-primary">
               View My Work
             </a>
-            <a href="#contact" className="btn-outline">
+            <a href="#contact" className="btn-outline">gme
               Get In Touch
             </a>
           </motion.div>
